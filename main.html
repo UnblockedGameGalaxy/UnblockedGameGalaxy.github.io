@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unblocked Game Galaxy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="main.html" class="logo">
+      <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-text">Unblocked Game Galaxy</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="main.html" class="active">Home</a></li>
+      <li><a href="#" class="coming-soon">About</a></li>
+      <li><a href="#" class="coming-soon">Update Log</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Unblocked Game Galaxy</h1>
+      <div class="hero-search">
+        <input type="text" id="searchInput" placeholder="Search for a game..." autocomplete="off">
+        <button id="searchBtn" aria-label="Search">🔍</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- Categories -->
+    <div class="categories" id="categories">
+      <button class="cat-btn active" data-cat="all">All Games</button>
+      <button class="cat-btn" data-cat="sports">Sports</button>
+      <button class="cat-btn" data-cat="racing">Racing</button>
+      <button class="cat-btn" data-cat="puzzle">Puzzle</button>
+      <button class="cat-btn" data-cat="action">Action</button>
+      <button class="cat-btn" data-cat="arcade">Arcade</button>
+      <button class="cat-btn" data-cat="io">.IO Games</button>
+    </div>
+
+    <!-- Section header -->
+    <div class="games-header">
+      <h2 id="sectionTitle">All Games</h2>
+      <span class="game-count" id="gameCount">0 games</span>
+    </div>
+
+    <!-- Games Grid -->
+    <div class="games-grid" id="gamesGrid"></div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon">🎮</div>
+      <h3>No games found</h3>
+      <p>Try a different search or category</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Unblocked Game Galaxy &copy; 2026 • For fun & educational use</p>
+  </footer>
+
+  <!-- GAME MODAL -->
+  <div class="modal" id="gameModal" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Game</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <p class="modal-placeholder">This game will open here.<br>Add a real game URL or embed later.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
