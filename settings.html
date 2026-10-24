@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Unblocked Game Galaxy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-text">Unblocked Game Galaxy</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#" class="coming-soon">About</a></li>
+      <li><a href="#" class="coming-soon">Update Log</a></li>
+      <li><a href="settings.html" class="active">Settings</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- SETTINGS CONTENT -->
+  <main class="container settings-page">
+    <h1 class="settings-title">Settings</h1>
+    <p class="settings-desc">Customize your Unblocked Game Galaxy experience</p>
+
+    <!-- Background section -->
+    <section class="settings-card">
+      <h2>Background</h2>
+      <p class="card-desc">Upload a PNG (or JPG) image to use as the site background. It will apply to all pages.</p>
+
+      <div class="bg-preview-wrap">
+        <div class="bg-preview" id="bgPreview">
+          <span id="bgPreviewLabel">Default background</span>
+        </div>
+      </div>
+
+      <div class="bg-actions">
+        <label class="upload-btn">
+          Upload Image
+          <input type="file" id="bgUpload" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
+        </label>
+        <button type="button" class="reset-btn" id="bgReset">Reset to Default</button>
+      </div>
+
+      <p class="hint" id="bgStatus"></p>
+    </section>
+
+    <!-- More settings placeholder -->
+    <section class="settings-card muted-card">
+      <h2>More settings</h2>
+      <p class="card-desc">Sound, theme, and other options coming later.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Unblocked Game Galaxy &copy; 2026 • For fun & educational use</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
