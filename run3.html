@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Run 3 • Unblocked Game Galaxy</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <style>
-    /* Game page extras (Galaxy theme) */
     .game-play-main {
       max-width: 1100px;
       margin: 0 auto;
@@ -37,9 +35,7 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    .game-back:hover {
-      color: var(--accent);
-    }
+    .game-back:hover { color: var(--accent); }
     .fs-btn {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -63,18 +59,43 @@
       border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-      margin-bottom: 28px;
+      margin-bottom: 16px;
+      position: relative;
     }
     #ruffle-container {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      max-height: 75vh;
+      height: 0;
+      padding-bottom: 75%; /* 4:3 */
+      position: relative;
+      background: #000;
     }
-    #ruffle-container ruffle-player {
+    #ruffle-container ruffle-player,
+    #ruffle-container object,
+    #ruffle-container embed {
+      position: absolute !important;
+      inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      display: block;
     }
+    #load-status {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 1rem;
+      z-index: 2;
+      pointer-events: none;
+      text-align: center;
+      padding: 20px;
+    }
+    #load-status.error {
+      color: #f87171;
+      pointer-events: auto;
+      background: #000;
+    }
+    #load-status.hidden { display: none; }
     .game-info-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -85,12 +106,8 @@
     .game-info-card h2 {
       font-size: 1.25rem;
       margin-bottom: 12px;
-      color: var(--text);
     }
-    .game-info-card p {
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+    .game-info-card p { color: var(--muted); margin-bottom: 12px; }
     .meta {
       color: var(--muted);
       font-size: 0.9rem;
@@ -99,31 +116,20 @@
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .meta div {
-      margin: 6px 0;
-    }
-    .meta span {
-      color: #cbd5e1;
-      font-weight: 500;
-    }
-    .controls-list {
-      color: var(--muted);
-      margin-top: 8px;
-    }
-    .controls-list strong {
-      color: var(--text);
-    }
+    .meta div { margin: 6px 0; }
+    .meta span { color: #cbd5e1; font-weight: 500; }
+    .controls-list { color: var(--muted); margin-top: 8px; }
+    .controls-list strong { color: var(--text); }
     .legal-note {
       margin-top: 20px;
       color: #64748b;
       font-size: 0.875rem;
     }
-    .legal-note a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .legal-note a:hover {
-      text-decoration: underline;
+    .legal-note a { color: var(--accent); text-decoration: none; }
+    .hint-line {
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-bottom: 24px;
     }
     #rotate-prompt {
       display: none;
@@ -138,13 +144,8 @@
       text-align: center;
       padding: 30px;
     }
-    #rotate-prompt h2 {
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    #rotate-prompt p {
-      color: var(--muted);
-    }
+    #rotate-prompt h2 { color: var(--accent); margin-bottom: 10px; }
+    #rotate-prompt p { color: var(--muted); }
     @media (max-width: 1024px) and (orientation: portrait) {
       #rotate-prompt { display: flex !important; }
       .navbar, .game-play-main, .footer { display: none !important; }
@@ -185,29 +186,29 @@
       </div>
     </div>
 
-    <div class="game-area">
-      <div id="ruffle-container"></div>
+    <div class="game-area" id="gameArea">
+      <div id="ruffle-container">
+        <div id="load-status">Loading Run 3…</div>
+      </div>
     </div>
+    <p class="hint-line">If the game stays black, click inside the box once. File used: <code>Run3.swf</code></p>
 
     <div class="game-info-card">
       <h2>About Run 3</h2>
       <p>
-        Run, jump, and tumble through tunnels in space. Guide your explorer along the walls of crumbling tubes — fall off the edge and the run is over. Unlock characters and paths in this classic Flash endless runner.
+        Run, jump, and tumble through tunnels in space. Guide your explorer along the walls of crumbling tubes — fall off the edge and the run is over.
       </p>
-
       <div class="meta">
         <div>Original Creator: <span>Player 03</span></div>
         <div>First Released: <span>2014</span></div>
-        <div>Version on site: <span>Classic Flash (Ruffle emulator)</span></div>
+        <div>Version on site: <span>Classic Flash (Ruffle)</span></div>
         <div>Added to Unblocked Game Galaxy: <span>October 2026</span></div>
       </div>
-
       <p class="controls-list">
         <strong>Controls:</strong><br>
         • Arrow keys / WASD — move and jump<br>
-        • Stay on the tunnel walls — falling into the void ends the run
+        • Stay on the tunnel walls
       </p>
-
       <p class="legal-note">
         Classic Flash version for nostalgic &amp; educational use only.<br>
         Original game © Player 03 · <a href="https://www.player03.com/" target="_blank" rel="noopener">player03.com</a>
@@ -220,36 +221,92 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Load Ruffle AFTER config so options apply -->
   <script>
-    // Same Ruffle method as your old page
     window.RufflePlayer = window.RufflePlayer || {};
     window.RufflePlayer.config = {
-      "autoplay": "on",
-      "unmuteOverlay": "hidden",
-      "warnOnUnsupportedContent": false
+      autoplay: "on",
+      unmuteOverlay: "hidden",
+      warnOnUnsupportedContent: false,
+      letterbox: "on",
+      backgroundColor: "#000000"
     };
+  </script>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script>
+    const SWF_URL = "Run3.swf";
+    const statusEl = document.getElementById("load-status");
+    const container = document.getElementById("ruffle-container");
 
-    const ruffle = window.RufflePlayer.newest();
-    const player = ruffle.createPlayer();
-    player.style.width = "100%";
-    player.style.height = "100%";
-    document.getElementById("ruffle-container").appendChild(player);
-    player.load("Run3.swf");
+    function setStatus(msg, isError) {
+      statusEl.textContent = msg;
+      statusEl.classList.toggle("error", !!isError);
+      statusEl.classList.toggle("hidden", false);
+    }
 
+    function hideStatus() {
+      statusEl.classList.add("hidden");
+    }
+
+    function startGame() {
+      if (!window.RufflePlayer || typeof window.RufflePlayer.newest !== "function") {
+        setStatus("Ruffle failed to load. Check if unpkg.com is blocked, then refresh.", true);
+        return;
+      }
+
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      player.style.width = "100%";
+      player.style.height = "100%";
+      container.appendChild(player);
+
+      setStatus("Loading SWF…");
+
+      player.load({
+        url: SWF_URL,
+        autoplay: "on",
+        unmuteOverlay: "hidden",
+        letterbox: "on",
+        backgroundColor: "#000000",
+        warnOnUnsupportedContent: false
+      }).then(function () {
+        // Give the movie a moment to paint
+        setTimeout(hideStatus, 800);
+      }).catch(function (err) {
+        console.error(err);
+        setStatus("Could not load Run3.swf. Open the browser console (F12) for details. Make sure the file is in the site root.", true);
+      });
+    }
+
+    // Wait until Ruffle script has registered itself
+    function waitForRuffle(tries) {
+      tries = tries || 0;
+      if (window.RufflePlayer && typeof window.RufflePlayer.newest === "function") {
+        startGame();
+      } else if (tries < 50) {
+        setTimeout(function () { waitForRuffle(tries + 1); }, 100);
+      } else {
+        setStatus("Ruffle did not start. Try another network or self-host Ruffle.", true);
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () { waitForRuffle(0); });
+    } else {
+      waitForRuffle(0);
+    }
+
+    // Fullscreen
     const fullscreenBtn = document.getElementById("fullscreenBtn");
-    const gameArea = document.querySelector(".game-area");
-
-    fullscreenBtn.addEventListener("click", () => {
+    const gameArea = document.getElementById("gameArea");
+    fullscreenBtn.addEventListener("click", function () {
       if (!document.fullscreenElement) {
-        gameArea.requestFullscreen().catch(err => console.log("Fullscreen failed:", err));
-        fullscreenBtn.textContent = "Exit Fullscreen";
+        gameArea.requestFullscreen().catch(function (e) { console.log(e); });
       } else {
         document.exitFullscreen();
-        fullscreenBtn.textContent = "Fullscreen";
       }
     });
-
-    document.addEventListener("fullscreenchange", () => {
+    document.addEventListener("fullscreenchange", function () {
       fullscreenBtn.textContent = document.fullscreenElement ? "Exit Fullscreen" : "Fullscreen";
     });
   </script>
