@@ -3,59 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unblocked Game Galaxy</title>
+  <title>Unblocked Game Galaxy - Play Free Online Games</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover Slope, BitLife, Among Us, and more.">
+  <meta property="og:title" content="Unblocked Game Galaxy">
+  <meta property="og:description" content="Play the best free unblocked games online seamlessly.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="placeholder.png">
+  <meta name="theme-color" content="#7b2cbf">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4293684626558852">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4293684626558852" crossorigin="anonymous"></script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholder.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="placeholder.png">
+
+  <!-- Galaxy Fonts (Orbitron for headers, Exo 2 for body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Essential Site Scripts -->
+  <script src="/analytics.js" async></script>
+  <script src="/tracking.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script src="/pages.js"></script>
+  <script src="js/calculate-playtime.js"></script>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-text">Unblocked Game Galaxy</span>
-    </a>
+  <!-- Navigation Bar -->
+  <div id="navbar-container">
+    <div class="brand-logo">UNBLOCKED GAME GALAXY</div>
+    
+    <!-- Title Selection Dropdown -->
+    <div class="nav-dropdown-container">
+      <button id="navMenuBtn" class="nav-menu-btn">
+        Menu <span class="arrow-icon">▼</span>
+      </button>
+      <div id="navDropdownMenu" class="nav-dropdown-menu">
+        <a href="/settings.html">Settings</a>
+        <a href="/changelog.html">Update Log</a>
+        <a href="#AllGamesDiv">Games</a>
+      </div>
+    </div>
+  </div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="#" class="coming-soon">About</a></li>
-      <li><a href="#" class="coming-soon">Update Log</a></li>
-      <li><a href="settings.html">Settings</a></li>
+  <!-- New Games Section -->
+  <div class="section-header">New Games</div>
+  <div class="game-section-container">
+    <ul id="pageListNEW" class="game-list">
+      <!-- Dynamic JS List Insertion -->
     </ul>
+  </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
+  <!-- Multiplayer Games Section -->
+  <div class="section-header multiplayer">Multiplayer Games</div>
+  <div class="game-section-container">
+    <ul id="pageListMULTI" class="game-list">
+      <!-- Dynamic JS List Insertion -->
+    </ul>
+  </div>
+
+  <!-- Online Games Section -->
+  <div class="section-header multiplayer">Online Games</div>
+  <div class="game-section-container">
+    <ul id="pageListONLINE" class="game-list">
+      <!-- Dynamic JS List Insertion -->
+    </ul>
+  </div>
+
+  <!-- Banner Ad Slot -->
+  <div class="ad-banner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4293684626558852"
+         data-ad-slot="9588548509"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- Sort & Filter Control Panel -->
+  <div class="sortButtonDiv" id="AllGamesDiv">
+    <!-- Sort Dropdown -->
+    <div id="sortDropdownContainer" class="dropdown-wrapper">
+      <button id="sortButton">Sort: A-Z <span class="arrow-icon">▼</span></button>
+      <div id="sortDropdownMenu" class="dropdown-menu">
+        <ul class="dropdown-inner">
+          <li data-sort="0">A-Z</li>
+          <li data-sort="1">Z-A</li>
+          <li data-sort="2">Added New-Old</li>
+          <li data-sort="3">Added Old-New</li>
+          <li data-sort="4">Release New-Old</li>
+          <li data-sort="5">Release Old-New</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Filter Dropdown -->
+    <div id="filterDropdownContainer" class="dropdown-wrapper">
+      <button id="filterButton">Filter: All <span class="arrow-icon">▼</span></button>
+      <div id="filterDropdownMenu" class="dropdown-menu">
+        <ul class="dropdown-inner">
+          <li data-filter="All">All</li>
+          <li data-filter="multiplayer">Multiplayer</li>
+          <li data-filter="online">Online</li>
+          <li data-filter="shooter">Shooter</li>
+          <li data-filter="puzzle">Puzzle</li>
+          <li data-filter="endless">Endless</li>
+          <li data-filter="platformer">Platformer</li>
+          <li data-filter="driving">Driving</li>
+          <li data-filter="demo">Demo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Game List -->
+  <div class="game-section-container">
+    <ul id="pageList" class="game-list">
+      <!-- Dynamic List Populated by pages.js -->
+    </ul>
+  </div>
+
+  <!-- Accordion Footer Container -->
+  <footer class="galaxy-footer">
+    <button id="footerAccordionBtn" class="footer-accordion-btn">
+      <span>ABOUT UNBLOCKED GAME GALAXY</span>
+      <span class="accordion-icon">▼</span>
     </button>
-  </nav>
+    <div id="footerContent" class="footer-content">
+      <div class="footer-inner">
+        <h3>Welcome to the Galaxy of Free Online Gaming</h3>
+        <p>
+          Unblocked Game Galaxy is your ultimate portal for playing free online web games anywhere—whether you are at school, work, or home. Our platform provides unrestricted access to hundreds of top-rated HTML5, WebGL, and retro arcade titles without requiring downloads, installs, or logins.
+        </p>
+        
+        <h3>Why Play on Unblocked Game Galaxy?</h3>
+        <p>
+          We curate a continuously updated collection of popular games across multiple genres including high-speed driving simulators, multiplayer arenas, tricky puzzle games, action platformers, and endless runners. All games are optimized for smooth execution on modern browsers and Chromebooks.
+        </p>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Unblocked Game Galaxy</h1>
-    </div>
-  </section>
-
-  <main class="container">
-    <div class="games-header">
-      <h2>All Games</h2>
-      <span class="game-count">1 game</span>
-    </div>
-
-    <!-- Static game cards (no JS list) -->
-    <div class="games-grid">
-      <a href="run3.html" class="game-card game-card-link">
-        <div class="game-thumb">🏃</div>
-        <div class="game-info">
-          <div class="game-title">Run 3</div>
-          <div class="game-tag">Arcade</div>
+        <!-- Quick Links & Dashboard Links -->
+        <div class="footer-dashboard-links">
+          <a class="footer-link-btn" href="https://github.com/">GitHub</a>
+          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
+          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
+          <a class="footer-link-btn" href="https://forms.gle/">Suggest a Game!</a>
+          <a class="footer-link-btn" href="/themes.html#export">Submit a Theme</a>
         </div>
-      </a>
-    </div>
-  </main>
 
-  <footer class="footer">
-    <p>Unblocked Game Galaxy &copy; 2026 • For fun & educational use</p>
+        <div class="footer-credits">
+          &copy; 2026 Unblocked Game Galaxy. All rights reserved. Designed for unrestricted browser gaming.
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- External JavaScript Files -->
+  <script src="/js/list/new-list.js"></script>
+  <script src="/js/list/multi-list.js"></script>
+  <script src="/js/list/online-list.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
