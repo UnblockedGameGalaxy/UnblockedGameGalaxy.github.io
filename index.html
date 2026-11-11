@@ -29,6 +29,15 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Inline styling helper for 1x1 aspect ratio thumbnail -->
+  <style>
+    .game-thumb img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+  </style>
+
   <!-- Essential Site Scripts -->
   <script src="/analytics.js" async></script>
   <script src="/tracking.js" defer></script>
@@ -55,7 +64,7 @@
     </div>
   </div>
 
-  <!-- Search, Sort & Filter Control Panel (Moved to top) -->
+  <!-- Search, Sort & Filter Control Panel -->
   <div class="sortButtonDiv" id="AllGamesDiv">
     <!-- Search Bar -->
     <div class="search-wrapper">
@@ -100,11 +109,11 @@
   <div class="section-header">New Games</div>
   <div class="game-section-container">
     <ul id="pageListNEW" class="game-list">
-      <!-- Static First Game: Slope -->
+      <!-- Static First Game: Slope with 1x1 image -->
       <li class="game-card">
         <a href="https://unblockedgamegalaxy.github.io/slope" class="game-card-link">
           <div class="game-thumb">
-            <img src="placeholder.png" alt="Slope Game">
+            <img src="https://g.sprunky.gg/slope-c/slope-3d/slope-3d.jpg" alt="Slope Game">
           </div>
           <div class="game-title">Slope</div>
         </a>
