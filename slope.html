@@ -32,6 +32,9 @@
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Unity WebGL Game Stylesheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/renagamer101/lunar@1933964863114239e554837ae61083412faaa3d5/gfiles/slope/TemplateData/style.css">
+
   <!-- Internal Game Page Specific Styles -->
   <style>
     /* Stage & Ad Layout Grid */
@@ -101,58 +104,6 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       background-color: #000;
-    }
-
-    .ply-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Loading Overlay */
-    .ply-loading {
-      position: absolute;
-      inset: 0;
-      background: var(--secondary-color-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: opacity 0.4s ease;
-    }
-
-    .ply-loading.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .ply-loading-title {
-      font-family: var(--font-galaxy);
-      font-size: 1.8rem;
-      color: var(--primary-glow);
-      margin-bottom: 15px;
-    }
-
-    .ply-loading-bar-wrap {
-      width: 200px;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid var(--primary-glow);
-    }
-
-    .ply-loading-bar {
-      width: 100%;
-      height: 100%;
-      background: var(--primary-glow);
-      animation: loadAnim 1.5s infinite ease-in-out;
-    }
-
-    @keyframes loadAnim {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
     }
 
     /* Control Bar */
@@ -330,23 +281,10 @@
       <!-- Center Game Frame & Controls -->
       <div class="ply-stage">
         <div class="ply-frame-wrap">
-          <!-- Loading Overlay -->
-          <div class="ply-loading" id="plyLoading">
-            <div class="ply-loading-title">Slope</div>
-            <div class="ply-loading-bar-wrap">
-              <div class="ply-loading-bar"></div>
-            </div>
+          <!-- Unity WebGL Game Container -->
+          <div class="webgl-content">
+            <div id="gameContainer" style="width: 100%; height: 100%;"></div>
           </div>
-
-          <!-- Game Iframe -->
-          <iframe 
-            id="plyIframe" 
-            class="ply-iframe" 
-            src="about:blank"
-            title="Slope — Unblocked Game Galaxy" 
-            allow="fullscreen; autoplay" 
-            allowfullscreen>
-          </iframe>
         </div>
 
         <!-- Control Bar -->
@@ -355,9 +293,9 @@
           <span class="ply-ctrl-tag">Arcade</span>
           <span class="ply-ctrl-spacer"></span>
 
-          <button class="ply-ctrl-btn" id="plyFullscreen"> fullscreen</button>
-          <button class="ply-ctrl-btn" id="plyRestart"> restart</button>
-          <button class="ply-ctrl-btn" id="plyPopout"> popout</button>
+          <button class="ply-ctrl-btn" id="plyFullscreen">Fullscreen</button>
+          <button class="ply-ctrl-btn" id="plyRestart">Restart</button>
+          <button class="ply-ctrl-btn" id="plyPopout">Popout</button>
         </div>
       </div>
 
@@ -442,38 +380,44 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Unity WebGL Engine Scripts -->
+  <script src="https://cdn.jsdelivr.net/gh/renagamer101/lunar@1933964863114239e554837ae61083412faaa3d5/gfiles/slope/TemplateData/UnityProgress.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/renagamer101/lunar@1933964863114239e554837ae61083412faaa3d5/gfiles/slope/TemplateData/unityloader41.js"></script>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/renagamer101/lunar@1933964863114239e554837ae61083412faaa3d5/gfiles/slope/Build/slope.json", {
+      onProgress: UnityProgress,
+      Module: {
+        onRuntimeInitialized: function() {
+          UnityProgress(gameInstance, "complete");
+        }
+      }
+    });
+  </script>
+  <script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/addc4348-16c2-4645-9dff-f99b962e39ef%2Fscr.js"></script>
+
+  <!-- Custom Site Script -->
   <script src="script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const iframe = document.getElementById("plyIframe");
-      const loading = document.getElementById("plyLoading");
+      const containerWrap = document.querySelector(".ply-frame-wrap");
       const fullBtn = document.getElementById("plyFullscreen");
       const restartBtn = document.getElementById("plyRestart");
       const popoutBtn = document.getElementById("plyPopout");
 
-      // Set target game frame source
-      const gameSrc = "https://ubghyper.github.io/GameList.github.io/Slope/";
-      iframe.src = gameSrc;
+      const gameJsonUrl = "https://cdn.jsdelivr.net/gh/renagamer101/lunar@1933964863114239e554837ae61083412faaa3d5/gfiles/slope/Build/slope.json";
 
-      // Hide loading screen on iframe load
-      iframe.onload = () => {
-        loading.classList.add("hidden");
-      };
-
-      // Control Bar Functionality
+      // Control Bar Actions
       fullBtn.addEventListener("click", () => {
-        if (iframe.requestFullscreen) iframe.requestFullscreen();
-        else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+        if (containerWrap.requestFullscreen) containerWrap.requestFullscreen();
+        else if (containerWrap.webkitRequestFullscreen) containerWrap.webkitRequestFullscreen();
       });
 
       restartBtn.addEventListener("click", () => {
-        loading.classList.remove("hidden");
-        iframe.src = gameSrc;
+        location.reload();
       });
 
       popoutBtn.addEventListener("click", () => {
-        window.open(gameSrc, "_blank");
+        window.open(gameJsonUrl, "_blank");
       });
     });
   </script>
