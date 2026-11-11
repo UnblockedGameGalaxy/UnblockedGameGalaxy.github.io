@@ -29,7 +29,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Inline styling helper for 1x1 aspect ratio thumbnail -->
+  <!-- 1x1 Aspect Ratio Styling for Game Thumbnails -->
   <style>
     .game-thumb img {
       width: 100%;
@@ -109,11 +109,13 @@
   <div class="section-header">New Games</div>
   <div class="game-section-container">
     <ul id="pageListNEW" class="game-list">
-      <!-- Static First Game: Slope with 1x1 image -->
+      <!-- Slope Game with Fallback Image Handler -->
       <li class="game-card">
         <a href="https://unblockedgamegalaxy.github.io/slope" class="game-card-link">
           <div class="game-thumb">
-            <img src="https://g.sprunky.gg/slope-c/slope-3d/slope-3d.jpg" alt="Slope Game">
+            <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/Anarios/slope-unblocked/master/icon.png" 
+                 alt="Slope Game" 
+                 onerror="this.onerror=null; this.src='placeholdergame.png';">
           </div>
           <div class="game-title">Slope</div>
         </a>
