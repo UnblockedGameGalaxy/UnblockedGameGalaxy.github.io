@@ -6,11 +6,11 @@
   <title>Unblocked Game Galaxy - Play Free Online Games</title>
 
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover Slope, BitLife, Among Us, and more.">
+  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover BitLife, Among Us, and more.">
   <meta property="og:title" content="Unblocked Game Galaxy">
   <meta property="og:description" content="Play the best free unblocked games online seamlessly.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="slopegame.png">
+  <meta property="og:image" content="favicon.png">
   <meta name="theme-color" content="#7b2cbf">
 
   <!-- Favicons -->
@@ -25,12 +25,55 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- 1x1 Aspect Ratio Styling for Game Thumbnails -->
+  <!-- Search Bar & Thumbnail Styling -->
   <style>
     .game-thumb img {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+    }
+
+    /* Modern Enhanced Search Bar */
+    .search-wrapper {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .search-wrapper input {
+      width: 100%;
+      padding: 12px 20px 12px 45px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+      border: 2px solid rgba(123, 44, 191, 0.4);
+      border-radius: 30px;
+      outline: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .search-wrapper input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .search-wrapper input:focus {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #7b2cbf;
+      box-shadow: 0 0 15px rgba(123, 44, 191, 0.6);
+    }
+
+    .search-wrapper::before {
+      content: '🔍';
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      opacity: 0.6;
+      pointer-events: none;
     }
   </style>
 
@@ -62,7 +105,7 @@
 
   <!-- Search, Sort & Filter Control Panel -->
   <div class="sortButtonDiv" id="AllGamesDiv">
-    <!-- Search Bar -->
+    <!-- Redesigned Search Bar -->
     <div class="search-wrapper">
       <input type="text" id="gameSearchInput" placeholder="Search games..." />
     </div>
@@ -105,17 +148,6 @@
   <div class="section-header">New Games</div>
   <div class="game-section-container">
     <ul id="pageListNEW" class="game-list">
-      <!-- Slope Game -->
-      <li class="game-card">
-        <a href="https://unblockedgamegalaxy.github.io/slope" class="game-card-link">
-          <div class="game-thumb">
-            <img src="slopegame.png" 
-                 alt="Slope Game" 
-                 onerror="this.onerror=null; this.src='placeholdergame.png';">
-          </div>
-          <div class="game-title">Slope</div>
-        </a>
-      </li>
       <!-- Dynamic JS List Insertion -->
     </ul>
   </div>
@@ -164,10 +196,7 @@
         <!-- Quick Links & Dashboard Links -->
         <div class="footer-dashboard-links">
           <a class="footer-link-btn" href="https://github.com/">GitHub</a>
-          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
-          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
           <a class="footer-link-btn" href="https://forms.gle/">Suggest a Game!</a>
-          <a class="footer-link-btn" href="/themes.html#export">Submit a Theme</a>
         </div>
 
         <div class="footer-credits">
