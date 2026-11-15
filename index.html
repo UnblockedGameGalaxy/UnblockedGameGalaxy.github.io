@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unblocked Game Galaxy - Play Free Online Games</title>
-
+  
   <!-- SEO & Open Graph Meta Tags -->
-  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover BitLife, Among Us, and more.">
+  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover Run 3, Bloons TD 1, Age of War, World's Hardest Game, and more.">
   <meta property="og:title" content="Unblocked Game Galaxy">
   <meta property="og:description" content="Play the best free unblocked games online seamlessly.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="favicon.png">
+  <meta property="og:image" content="placeholder.png">
   <meta name="theme-color" content="#7b2cbf">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" sizes="48x48" href="favicon.png">
-  <link rel="apple-touch-icon" sizes="48x48" href="favicon.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholder.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="placeholder.png">
 
   <!-- Galaxy Fonts (Orbitron for headers, Exo 2 for body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,55 +25,230 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Search Bar & Thumbnail Styling -->
+  <!-- Home Page 4-Column Grid, Top Search/Filter Bar & Side Ad Rails Styles -->
   <style>
-    .game-thumb img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+    /* Top Search & Filter Control Bar */
+    .top-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      background: var(--secondary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 20px rgba(157, 78, 221, 0.25);
     }
 
-    /* Modern Enhanced Search Bar */
-    .search-wrapper {
+    .search-box-wrapper {
       position: relative;
-      max-width: 500px;
-      width: 100%;
-      margin: 0 auto;
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      align-items: center;
     }
 
-    .search-wrapper input {
+    .galaxy-search-input {
       width: 100%;
-      padding: 12px 20px 12px 45px;
-      font-family: 'Exo 2', sans-serif;
-      font-size: 1rem;
+      padding: 10px 38px 10px 14px;
+      background: var(--secondary-color-dark);
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
       color: #fff;
-      background: rgba(255, 255, 255, 0.07);
-      border: 2px solid rgba(123, 44, 191, 0.4);
-      border-radius: 30px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.95rem;
       outline: none;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(8px);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    .search-wrapper input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+    .galaxy-search-input::placeholder {
+      color: rgba(255, 255, 255, 0.45);
     }
 
-    .search-wrapper input:focus {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: #7b2cbf;
-      box-shadow: 0 0 15px rgba(123, 44, 191, 0.6);
+    .galaxy-search-input:focus {
+      box-shadow: 0 0 12px rgba(199, 125, 255, 0.55);
+      border-color: #fff;
     }
 
-    .search-wrapper::before {
-      content: '🔍';
+    .search-clear-btn {
       position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.9rem;
-      opacity: 0.6;
-      pointer-events: none;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: var(--primary-glow);
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+      padding: 2px 6px;
+    }
+
+    .search-clear-btn.visible {
+      display: block;
+    }
+
+    .top-controls-bar .sortButtonDiv {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Main Wrapper with Left & Right Ad Space */
+    .home-layout-rails {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1500px;
+      margin: 25px auto 45px auto;
+      padding: 0 20px;
+    }
+
+    .ad-rail {
+      width: 160px;
+      min-height: 600px;
+      position: sticky;
+      top: 20px;
+      flex-shrink: 0;
+      background: rgba(16, 0, 43, 0.4);
+      border: 1px dashed rgba(199, 125, 255, 0.3);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: var(--font-galaxy);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1150px) {
+      .ad-rail {
+        display: none;
+      }
+    }
+
+    .home-main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* 4 Boxes Per Row Grid */
+    .game-section-container {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .game-list {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .game-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .game-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Image Box Styling for Every Game Item */
+    .game-list li {
+      background: var(--secondary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .game-list li:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-glow);
+      box-shadow: 0 0 18px rgba(199, 125, 255, 0.45);
+    }
+
+    .game-list li a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .game-list li img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background-color: var(--secondary-color-dark);
+      border-bottom: 1px solid rgba(199, 125, 255, 0.25);
+      display: block;
+    }
+
+    .game-list li span,
+    .game-list li p,
+    .game-list li div {
+      padding: 10px 12px;
+      font-family: var(--font-galaxy);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Placeholder Slots for Upcoming Games */
+    .game-list li.placeholder-box {
+      border: 2px dashed rgba(199, 125, 255, 0.35);
+      background: rgba(16, 0, 43, 0.45);
+      cursor: default;
+    }
+
+    .game-list li.placeholder-box:hover {
+      transform: none;
+      border-color: rgba(199, 125, 255, 0.5);
+      box-shadow: none;
+    }
+
+    .placeholder-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px dashed rgba(199, 125, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(199, 125, 255, 0.4);
+      font-family: var(--font-galaxy);
+      font-size: 1.5rem;
+    }
+
+    .placeholder-box span {
+      color: rgba(255, 255, 255, 0.45);
+      font-weight: 600;
+    }
+
+    .no-results-msg {
+      display: none;
+      text-align: center;
+      padding: 35px 20px;
+      background: var(--secondary-color);
+      border: 1px dashed var(--primary-glow);
+      border-radius: 12px;
+      font-family: var(--font-galaxy);
+      color: var(--primary-glow);
+      margin-bottom: 30px;
     }
   </style>
 
@@ -81,7 +256,6 @@
   <script src="/analytics.js" async></script>
   <script src="/tracking.js" defer></script>
   <script src="/main.js" defer></script>
-  <script src="/pages.js"></script>
   <script src="js/calculate-playtime.js"></script>
 </head>
 <body>
@@ -89,7 +263,7 @@
   <!-- Navigation Bar -->
   <div id="navbar-container">
     <div class="brand-logo">UNBLOCKED GAME GALAXY</div>
-
+    
     <!-- Title Selection Dropdown -->
     <div class="nav-dropdown-container">
       <button id="navMenuBtn" class="nav-menu-btn">
@@ -103,76 +277,151 @@
     </div>
   </div>
 
-  <!-- Search, Sort & Filter Control Panel -->
-  <div class="sortButtonDiv" id="AllGamesDiv">
-    <!-- Redesigned Search Bar -->
-    <div class="search-wrapper">
-      <input type="text" id="gameSearchInput" placeholder="Search games..." />
-    </div>
+  <!-- Home Page Layout with Side Ad Space & 4-Column Game Grid -->
+  <div class="home-layout-rails">
+    
+    <!-- Left Ad Space -->
+    <aside class="ad-rail"></aside>
 
-    <!-- Sort Dropdown -->
-    <div id="sortDropdownContainer" class="dropdown-wrapper">
-      <button id="sortButton">Sort: A-Z <span class="arrow-icon">▼</span></button>
-      <div id="sortDropdownMenu" class="dropdown-menu">
-        <ul class="dropdown-inner">
-          <li data-sort="0">A-Z</li>
-          <li data-sort="1">Z-A</li>
-          <li data-sort="2">Added New-Old</li>
-          <li data-sort="3">Added Old-New</li>
-          <li data-sort="4">Release New-Old</li>
-          <li data-sort="5">Release Old-New</li>
+    <!-- Center Game Section -->
+    <main class="home-main-content">
+
+      <!-- Top Search, Sort & Filter Control Bar -->
+      <div class="top-controls-bar" id="AllGamesDiv">
+        <div class="search-box-wrapper">
+          <input
+            type="text"
+            id="gameSearchInput"
+            class="galaxy-search-input"
+            placeholder="Search games..."
+            aria-label="Search games"
+            autocomplete="off"
+          >
+          <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="sortButtonDiv">
+          <!-- Sort Dropdown -->
+          <div id="sortDropdownContainer" class="dropdown-wrapper">
+            <button id="sortButton">Sort: A-Z <span class="arrow-icon">▼</span></button>
+            <div id="sortDropdownMenu" class="dropdown-menu">
+              <ul class="dropdown-inner">
+                <li data-sort="0">A-Z</li>
+                <li data-sort="1">Z-A</li>
+                <li data-sort="2">Added New-Old</li>
+                <li data-sort="3">Added Old-New</li>
+                <li data-sort="4">Release New-Old</li>
+                <li data-sort="5">Release Old-New</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Filter Dropdown -->
+          <div id="filterDropdownContainer" class="dropdown-wrapper">
+            <button id="filterButton">Filter: All <span class="arrow-icon">▼</span></button>
+            <div id="filterDropdownMenu" class="dropdown-menu">
+              <ul class="dropdown-inner">
+                <li data-filter="All">All</li>
+                <li data-filter="multiplayer">Multiplayer</li>
+                <li data-filter="online">Online</li>
+                <li data-filter="shooter">Shooter</li>
+                <li data-filter="puzzle">Puzzle</li>
+                <li data-filter="endless">Endless</li>
+                <li data-filter="platformer">Platformer</li>
+                <li data-filter="driving">Driving</li>
+                <li data-filter="demo">Demo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="noResultsMessage" class="no-results-msg">No matching games found in the galaxy.</div>
+
+      <!-- Master Game List (4 Boxes Per Row) -->
+      <div class="section-header" data-section-for="pageList">All Games</div>
+      <div class="game-section-container" data-container-for="pageList">
+        <ul id="pageList" class="game-list">
+
+          <!-- Row 1: Your 4 Active Games -->
+          <li data-category="platformer endless">
+            <a href="https://unblockedgamegalaxy.github.io/run3.html">
+              <img src="run3.png" alt="Run 3">
+              <span>Run 3</span>
+            </a>
+          </li>
+
+          <li data-category="puzzle">
+            <a href="https://unblockedgamegalaxy.github.io/bloonstd.html">
+              <img src="bloonstd.png" alt="Bloons TD 1">
+              <span>Bloons TD 1</span>
+            </a>
+          </li>
+
+          <li data-category="shooter">
+            <a href="https://unblockedgamegalaxy.github.io/age_of_war.html">
+              <img src="age_of_war.png" alt="Age of War">
+              <span>Age of War</span>
+            </a>
+          </li>
+
+          <li data-category="puzzle platformer">
+            <a href="https://unblockedgamegalaxy.github.io/worldshardestgames.html">
+              <img src="worldshardestgame.png" alt="World's Hardest Game">
+              <span>World's Hardest Game</span>
+            </a>
+          </li>
+
+          <!-- Row 2: Placeholder Slots for Upcoming Games -->
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <!-- Row 3: Placeholder Slots for Upcoming Games -->
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
+          <li class="placeholder-box">
+            <div class="placeholder-thumb">+</div>
+            <span>Coming Soon</span>
+          </li>
+
         </ul>
       </div>
-    </div>
 
-    <!-- Filter Dropdown -->
-    <div id="filterDropdownContainer" class="dropdown-wrapper">
-      <button id="filterButton">Filter: All <span class="arrow-icon">▼</span></button>
-      <div id="filterDropdownMenu" class="dropdown-menu">
-        <ul class="dropdown-inner">
-          <li data-filter="All">All</li>
-          <li data-filter="multiplayer">Multiplayer</li>
-          <li data-filter="online">Online</li>
-          <li data-filter="shooter">Shooter</li>
-          <li data-filter="puzzle">Puzzle</li>
-          <li data-filter="endless">Endless</li>
-          <li data-filter="platformer">Platformer</li>
-          <li data-filter="driving">Driving</li>
-          <li data-filter="demo">Demo</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- New Games Section -->
-  <div class="section-header">New Games</div>
-  <div class="game-section-container">
-    <ul id="pageListNEW" class="game-list">
-      <!-- Dynamic JS List Insertion -->
-    </ul>
-  </div>
+    <!-- Right Ad Space -->
+    <aside class="ad-rail"></aside>
 
-  <!-- Multiplayer Games Section -->
-  <div class="section-header multiplayer">Multiplayer Games</div>
-  <div class="game-section-container">
-    <ul id="pageListMULTI" class="game-list">
-      <!-- Dynamic JS List Insertion -->
-    </ul>
-  </div>
-
-  <!-- Online Games Section -->
-  <div class="section-header multiplayer">Online Games</div>
-  <div class="game-section-container">
-    <ul id="pageListONLINE" class="game-list">
-      <!-- Dynamic JS List Insertion -->
-    </ul>
-  </div>
-
-  <!-- Master Game List -->
-  <div class="game-section-container">
-    <ul id="pageList" class="game-list">
-      <!-- Dynamic List Populated by pages.js -->
-    </ul>
   </div>
 
   <!-- Accordion Footer Container -->
@@ -187,7 +436,7 @@
         <p>
           Unblocked Game Galaxy is your ultimate portal for playing free online web games anywhere—whether you are at school, work, or home. Our platform provides unrestricted access to hundreds of top-rated HTML5, WebGL, and retro arcade titles without requiring downloads, installs, or logins.
         </p>
-
+        
         <h3>Why Play on Unblocked Game Galaxy?</h3>
         <p>
           We curate a continuously updated collection of popular games across multiple genres including high-speed driving simulators, multiplayer arenas, tricky puzzle games, action platformers, and endless runners. All games are optimized for smooth execution on modern browsers and Chromebooks.
@@ -196,7 +445,10 @@
         <!-- Quick Links & Dashboard Links -->
         <div class="footer-dashboard-links">
           <a class="footer-link-btn" href="https://github.com/">GitHub</a>
+          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
+          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
           <a class="footer-link-btn" href="https://forms.gle/">Suggest a Game!</a>
+          <a class="footer-link-btn" href="/themes.html#export">Submit a Theme</a>
         </div>
 
         <div class="footer-credits">
@@ -207,9 +459,54 @@
   </footer>
 
   <!-- External JavaScript Files -->
-  <script src="/js/list/new-list.js"></script>
-  <script src="/js/list/multi-list.js"></script>
-  <script src="/js/list/online-list.js"></script>
   <script src="script.js"></script>
+
+  <!-- Live Search Filter Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("gameSearchInput");
+      const clearBtn = document.getElementById("searchClearBtn");
+      const noResultsMsg = document.getElementById("noResultsMessage");
+
+      function applySearchFilter() {
+        const query = searchInput.value.trim().toLowerCase();
+        clearBtn.classList.toggle("visible", query.length > 0);
+
+        const ul = document.getElementById("pageList");
+        const header = document.querySelector('[data-section-for="pageList"]');
+        const container = document.querySelector('[data-container-for="pageList"]');
+        if (!ul) return;
+
+        const items = ul.querySelectorAll("li");
+        let totalVisible = 0;
+
+        items.forEach((li) => {
+          if (li.classList.contains("placeholder-box")) {
+            li.style.display = query ? "none" : "";
+            if (!query) totalVisible++;
+            return;
+          }
+
+          const text = li.textContent.toLowerCase();
+          const match = !query || text.includes(query);
+          li.style.display = match ? "" : "none";
+          if (match) totalVisible++;
+        });
+
+        const showSection = !query || totalVisible > 0;
+        if (header) header.style.display = showSection ? "" : "none";
+        if (container) container.style.display = showSection ? "" : "none";
+        noResultsMsg.style.display = query && totalVisible === 0 ? "block" : "none";
+      }
+
+      searchInput.addEventListener("input", applySearchFilter);
+
+      clearBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        applySearchFilter();
+        searchInput.focus();
+      });
+    });
+  </script>
 </body>
 </html>
