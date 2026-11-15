@@ -10,12 +10,12 @@
   <meta property="og:title" content="Unblocked Game Galaxy">
   <meta property="og:description" content="Play the best free unblocked games online seamlessly.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="placeholder.png">
+  <meta property="og:image" content="placeholdergame.png">
   <meta name="theme-color" content="#7b2cbf">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholder.png">
-  <link rel="apple-touch-icon" sizes="48x48" href="placeholder.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholdergame.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="placeholdergame.png">
 
   <!-- Galaxy Fonts (Orbitron for headers, Exo 2 for body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +25,9 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Home Page 4-Column Grid, Top Search/Filter Bar & Side Ad Rails Styles -->
+  <!-- Home Page 4-Column Grid, Top Search/Sort Bar & Side Ad Rails Styles -->
   <style>
-    /* Top Search & Filter Control Bar */
+    /* Top Search & Sort Control Bar */
     .top-controls-bar {
       display: flex;
       flex-wrap: wrap;
@@ -52,7 +52,7 @@
 
     .galaxy-search-input {
       width: 100%;
-      padding: 10px 38px 10px 14px;
+      padding: 11px 38px 11px 40px;
       background: var(--secondary-color-dark);
       border: 1px solid var(--primary-glow);
       border-radius: 8px;
@@ -61,6 +61,15 @@
       font-size: 0.95rem;
       outline: none;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .search-box-wrapper::before {
+      content: '🔍';
+      position: absolute;
+      left: 13px;
+      font-size: 0.9rem;
+      opacity: 0.65;
+      pointer-events: none;
     }
 
     .galaxy-search-input::placeholder {
@@ -271,7 +280,6 @@
       </button>
       <div id="navDropdownMenu" class="nav-dropdown-menu">
         <a href="/settings.html">Settings</a>
-        <a href="/changelog.html">Update Log</a>
         <a href="#AllGamesDiv">Games</a>
       </div>
     </div>
@@ -286,7 +294,7 @@
     <!-- Center Game Section -->
     <main class="home-main-content">
 
-      <!-- Top Search, Sort & Filter Control Bar -->
+      <!-- Top Search & Sort Control Bar -->
       <div class="top-controls-bar" id="AllGamesDiv">
         <div class="search-box-wrapper">
           <input
@@ -301,35 +309,13 @@
         </div>
 
         <div class="sortButtonDiv">
-          <!-- Sort Dropdown -->
+          <!-- Sort Dropdown (A-Z / Z-A Only) -->
           <div id="sortDropdownContainer" class="dropdown-wrapper">
             <button id="sortButton">Sort: A-Z <span class="arrow-icon">▼</span></button>
             <div id="sortDropdownMenu" class="dropdown-menu">
               <ul class="dropdown-inner">
                 <li data-sort="0">A-Z</li>
                 <li data-sort="1">Z-A</li>
-                <li data-sort="2">Added New-Old</li>
-                <li data-sort="3">Added Old-New</li>
-                <li data-sort="4">Release New-Old</li>
-                <li data-sort="5">Release Old-New</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Filter Dropdown -->
-          <div id="filterDropdownContainer" class="dropdown-wrapper">
-            <button id="filterButton">Filter: All <span class="arrow-icon">▼</span></button>
-            <div id="filterDropdownMenu" class="dropdown-menu">
-              <ul class="dropdown-inner">
-                <li data-filter="All">All</li>
-                <li data-filter="multiplayer">Multiplayer</li>
-                <li data-filter="online">Online</li>
-                <li data-filter="shooter">Shooter</li>
-                <li data-filter="puzzle">Puzzle</li>
-                <li data-filter="endless">Endless</li>
-                <li data-filter="platformer">Platformer</li>
-                <li data-filter="driving">Driving</li>
-                <li data-filter="demo">Demo</li>
               </ul>
             </div>
           </div>
@@ -343,57 +329,63 @@
       <div class="game-section-container" data-container-for="pageList">
         <ul id="pageList" class="game-list">
 
-          <!-- Row 1: Your 4 Active Games -->
-          <li data-category="platformer endless">
-            <a href="https://unblockedgamegalaxy.github.io/run3.html">
-              <img src="run3.png" alt="Run 3">
-              <span>Run 3</span>
-            </a>
-          </li>
-
-          <li data-category="puzzle">
-            <a href="https://unblockedgamegalaxy.github.io/bloonstd.html">
-              <img src="bloonstd.png" alt="Bloons TD 1">
-              <span>Bloons TD 1</span>
-            </a>
-          </li>
-
-          <li data-category="shooter">
-            <a href="https://unblockedgamegalaxy.github.io/age_of_war.html">
-              <img src="age_of_war.png" alt="Age of War">
+          <li data-title="Age of War">
+            <a href="age_of_war.html">
+              <img src="age_of_war.png" alt="Age of War" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>Age of War</span>
             </a>
           </li>
 
-          <li data-category="puzzle platformer">
-            <a href="https://unblockedgamegalaxy.github.io/worldshardestgames.html">
-              <img src="worldshardestgame.png" alt="World's Hardest Game">
+          <li data-title="Alien Hominid">
+            <a href="alien_hominid.html">
+              <img src="alien_hominid.png" alt="Alien Hominid" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Alien Hominid</span>
+            </a>
+          </li>
+
+          <li data-title="Bloons TD 1">
+            <a href="bloonstd.html">
+              <img src="bloonstd.png" alt="Bloons TD 1" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Bloons TD 1</span>
+            </a>
+          </li>
+
+          <li data-title="Bloxorz">
+            <a href="bloxors.html">
+              <img src="bloxors.png" alt="Bloxorz" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Bloxorz</span>
+            </a>
+          </li>
+
+          <li data-title="Fancy Pants Adventures World 1">
+            <a href="FPAWorld1.html">
+              <img src="FPAWorld1.png" alt="Fancy Pants Adventures World 1" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Fancy Pants Adventures World 1</span>
+            </a>
+          </li>
+
+          <li data-title="Learn to Fly 3">
+            <a href="Learn-To-Fly-3.html">
+              <img src="Learn-To-Fly-3.png" alt="Learn to Fly 3" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Learn to Fly 3</span>
+            </a>
+          </li>
+
+          <li data-title="Run 3">
+            <a href="run3.html">
+              <img src="run3.png" alt="Run 3" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Run 3</span>
+            </a>
+          </li>
+
+          <li data-title="World's Hardest Game">
+            <a href="worldshardestgame.html">
+              <img src="worldshardestgame.png" alt="World's Hardest Game" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>World's Hardest Game</span>
             </a>
           </li>
 
-          <!-- Row 2: Placeholder Slots for Upcoming Games -->
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
-          </li>
-
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
-          </li>
-
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
-          </li>
-
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
-          </li>
-
-          <!-- Row 3: Placeholder Slots for Upcoming Games -->
+          <!-- Placeholder Slots for Upcoming Games -->
           <li class="placeholder-box">
             <div class="placeholder-thumb">+</div>
             <span>Coming Soon</span>
@@ -444,11 +436,8 @@
 
         <!-- Quick Links & Dashboard Links -->
         <div class="footer-dashboard-links">
-          <a class="footer-link-btn" href="https://github.com/">GitHub</a>
-          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
-          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
+          <a class="footer-link-btn" href="https://github.com/UnblockedGameGalaxy">GitHub</a>
           <a class="footer-link-btn" href="https://forms.gle/">Suggest a Game!</a>
-          <a class="footer-link-btn" href="/themes.html#export">Submit a Theme</a>
         </div>
 
         <div class="footer-credits">
@@ -461,18 +450,48 @@
   <!-- External JavaScript Files -->
   <script src="script.js"></script>
 
-  <!-- Live Search Filter Script -->
+  <!-- Live Search & A-Z / Z-A Sort Script -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const searchInput = document.getElementById("gameSearchInput");
       const clearBtn = document.getElementById("searchClearBtn");
       const noResultsMsg = document.getElementById("noResultsMessage");
+      const sortBtn = document.getElementById("sortButton");
+      const sortMenu = document.getElementById("sortDropdownMenu");
+      const ul = document.getElementById("pageList");
+
+      function sortGames(order) {
+        if (!ul) return;
+        const allItems = Array.from(ul.querySelectorAll("li"));
+        const gameItems = allItems.filter(li => !li.classList.contains("placeholder-box"));
+        const placeholders = allItems.filter(li => li.classList.contains("placeholder-box"));
+
+        gameItems.sort((a, b) => {
+          const titleA = (a.dataset.title || a.textContent.trim()).toLowerCase();
+          const titleB = (b.dataset.title || b.textContent.trim()).toLowerCase();
+          return order === "0" ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
+        });
+
+        gameItems.forEach(item => ul.appendChild(item));
+        placeholders.forEach(item => ul.appendChild(item));
+      }
+
+      if (sortMenu) {
+        sortMenu.querySelectorAll("li[data-sort]").forEach(option => {
+          option.addEventListener("click", () => {
+            const sortType = option.getAttribute("data-sort");
+            if (sortBtn) {
+              sortBtn.innerHTML = `Sort: ${option.textContent} <span class="arrow-icon">▼</span>`;
+            }
+            sortGames(sortType);
+          });
+        });
+      }
 
       function applySearchFilter() {
         const query = searchInput.value.trim().toLowerCase();
         clearBtn.classList.toggle("visible", query.length > 0);
 
-        const ul = document.getElementById("pageList");
         const header = document.querySelector('[data-section-for="pageList"]');
         const container = document.querySelector('[data-container-for="pageList"]');
         if (!ul) return;
