@@ -4,50 +4,197 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Settings - Unblocked Game Galaxy</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Customize your Unblocked Game Galaxy experience. Change backgrounds, themes, and preferences.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://unblockedgamegalaxy.com/settings.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Settings - Unblocked Game Galaxy">
+  <meta property="og:description" content="Customize your Unblocked Game Galaxy experience.">
+  <meta property="og:image" content="placeholdergame.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholdergame.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="placeholdergame.png">
+
+  <!-- Galaxy Fonts (Orbitron for headers, Exo 2 for body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Settings Page Specific Styles -->
+  <style>
+    .settings-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    .settings-title {
+      font-family: var(--font-galaxy);
+      font-size: 2rem;
+      color: var(--primary-glow);
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .settings-desc {
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .settings-card {
+      background: var(--secondary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 25px rgba(157, 78, 221, 0.25);
+    }
+
+    .settings-card h2 {
+      font-family: var(--font-galaxy);
+      font-size: 1.3rem;
+      color: var(--primary-glow);
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .bg-preview-wrap {
+      width: 100%;
+      height: 160px;
+      background: var(--secondary-color-dark);
+      border: 1px dashed rgba(199, 125, 255, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .bg-preview-label {
+      background: rgba(16, 0, 43, 0.75);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: var(--font-galaxy);
+      font-size: 0.85rem;
+      color: var(--primary-glow);
+      border: 1px solid rgba(199, 125, 255, 0.3);
+    }
+
+    .bg-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .upload-btn, .reset-btn {
+      background: var(--secondary-color-dark);
+      color: var(--primary-glow);
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: var(--font-galaxy);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .upload-btn:hover, .reset-btn:hover {
+      background: var(--primary-glow);
+      color: var(--secondary-color-dark);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .reset-btn {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .reset-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      box-shadow: none;
+      border-color: #fff;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #4ade80;
+    }
+
+    .muted-card {
+      border-style: dashed;
+      opacity: 0.8;
+    }
+  </style>
+
+  <!-- Essential Site Scripts -->
+  <script src="/analytics.js" async></script>
+  <script src="/tracking.js" defer></script>
+  <script src="/main.js" defer></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-text">Unblocked Game Galaxy</span>
-    </a>
+  <!-- Navigation Bar -->
+  <div id="navbar-container">
+    <div class="brand-logo">UNBLOCKED GAME GALAXY</div>
+    
+    <!-- Title Selection Dropdown -->
+    <div class="nav-dropdown-container">
+      <button id="navMenuBtn" class="nav-menu-btn">
+        Menu <span class="arrow-icon">▼</span>
+      </button>
+      <div id="navDropdownMenu" class="nav-dropdown-menu">
+        <a href="/settings.html">Settings</a>
+        <a href="/changelog.html">Update Log</a>
+        <a href="/index.html#AllGamesDiv">Games</a>
+      </div>
+    </div>
+  </div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#" class="coming-soon">About</a></li>
-      <li><a href="#" class="coming-soon">Update Log</a></li>
-      <li><a href="settings.html" class="active">Settings</a></li>
-    </ul>
-
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <!-- SETTINGS CONTENT -->
-  <main class="container settings-page">
+  <!-- Settings Main Content -->
+  <div class="settings-container">
     <h1 class="settings-title">Settings</h1>
-    <p class="settings-desc">Customize your Unblocked Game Galaxy experience</p>
+    <p class="settings-desc">Customize your Unblocked Game Galaxy experience across all pages.</p>
 
-    <!-- Background section -->
+    <!-- Background Section -->
     <section class="settings-card">
-      <h2>Background</h2>
-      <p class="card-desc">Upload a PNG (or JPG) image to use as the site background. It will apply to all pages.</p>
+      <h2>Custom Background</h2>
+      <p class="card-desc">Upload a PNG, JPG, or WebP image to use as your site background. It will automatically save and apply across all pages.</p>
 
-      <div class="bg-preview-wrap">
-        <div class="bg-preview" id="bgPreview">
-          <span id="bgPreviewLabel">Default background</span>
-        </div>
+      <div class="bg-preview-wrap" id="bgPreviewWrap">
+        <div class="bg-preview-label" id="bgPreviewLabel">Default Background</div>
       </div>
 
       <div class="bg-actions">
         <label class="upload-btn">
-          Upload Image
+          📂 Upload Image
           <input type="file" id="bgUpload" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
         </label>
         <button type="button" class="reset-btn" id="bgReset">Reset to Default</button>
@@ -56,18 +203,93 @@
       <p class="hint" id="bgStatus"></p>
     </section>
 
-    <!-- More settings placeholder -->
+    <!-- More Settings Placeholder -->
     <section class="settings-card muted-card">
-      <h2>More settings</h2>
-      <p class="card-desc">Sound, theme, and other options coming later.</p>
+      <h2>More Settings</h2>
+      <p class="card-desc" style="margin-bottom:0;">Sound, audio toggles, and additional galaxy preferences coming soon.</p>
     </section>
-  </main>
+  </div>
 
-  <footer class="footer">
-    <p>Unblocked Game Galaxy &copy; 2026 • For fun & educational use</p>
+  <!-- Accordion Footer Container -->
+  <footer class="galaxy-footer">
+    <button id="footerAccordionBtn" class="footer-accordion-btn">
+      <span>ABOUT UNBLOCKED GAME GALAXY</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div id="footerContent" class="footer-content">
+      <div class="footer-inner">
+        <h3>Welcome to the Galaxy of Free Online Gaming</h3>
+        <p>
+          Unblocked Game Galaxy is your ultimate portal for playing free online web games anywhere—whether you are at school, work, or home.
+        </p>
+
+        <!-- Quick Links & Dashboard Links -->
+        <div class="footer-dashboard-links">
+          <a class="footer-link-btn" href="https://github.com/">GitHub</a>
+          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
+          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
+          <a class="footer-link-btn" href="/contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-credits">
+          &copy; 2026 Unblocked Game Galaxy. All rights reserved.
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
-  <script src="settings.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const bgUpload = document.getElementById("bgUpload");
+      const bgReset = document.getElementById("bgReset");
+      const bgPreviewWrap = document.getElementById("bgPreviewWrap");
+      const bgPreviewLabel = document.getElementById("bgPreviewLabel");
+      const bgStatus = document.getElementById("bgStatus");
+
+      // Load saved background on page load
+      const savedBg = localStorage.getItem("galaxy_custom_bg");
+      if (savedBg) {
+        document.body.style.backgroundImage = `url(${savedBg})`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundAttachment = "fixed";
+        bgPreviewWrap.style.backgroundImage = `url(${savedBg})`;
+        bgPreviewLabel.textContent = "Custom Background Active";
+      }
+
+      // Handle file upload
+      bgUpload.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const base64Data = event.target.result;
+          localStorage.setItem("galaxy_custom_bg", base64Data);
+
+          // Apply instantly
+          document.body.style.backgroundImage = `url(${base64Data})`;
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
+          bgPreviewWrap.style.backgroundImage = `url(${base64Data})`;
+          bgPreviewLabel.textContent = "Custom Background Active";
+          bgStatus.textContent = "Background updated successfully!";
+          setTimeout(() => bgStatus.textContent = "", 3000);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Handle reset
+      bgReset.addEventListener("click", () => {
+        localStorage.removeItem("galaxy_custom_bg");
+        document.body.style.backgroundImage = "";
+        bgPreviewWrap.style.backgroundImage = "";
+        bgPreviewLabel.textContent = "Default Background";
+        bgStatus.textContent = "Background reset to default!";
+        setTimeout(() => bgStatus.textContent = "", 3000);
+      });
+    });
+  </script>
 </body>
 </html>
