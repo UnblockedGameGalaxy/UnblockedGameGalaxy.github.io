@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+  <!-- Persistent Custom Background Loader -->
+  <script>
+    try {
+      const savedBg = localStorage.getItem("galaxy_custom_bg");
+      if (savedBg) {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.backgroundImage = `url(${savedBg})`;
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundAttachment = "fixed";
+        });
+      }
+    } catch(e) {}
+  </script>
+
+
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unblocked Game Galaxy - Play Free Online Games</title>
