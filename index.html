@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-  <!-- Persistent Custom Background Loader -->
-  <script>
-    try {
-      const savedBg = localStorage.getItem("galaxy_custom_bg");
-      if (savedBg) {
-        document.addEventListener("DOMContentLoaded", () => {
-          document.body.style.backgroundImage = `url(${savedBg})`;
-          document.body.style.backgroundSize = "cover";
-          document.body.style.backgroundAttachment = "fixed";
-        });
-      }
-    } catch(e) {}
-  </script>
-
-
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unblocked Game Galaxy - Play Free Online Games</title>
@@ -279,10 +261,11 @@
     }
   </style>
 
-  <!-- Essential Site Scripts -->
+  <!-- Essential Site Scripts & Background Loader -->
   <script src="/analytics.js" async></script>
   <script src="/tracking.js" defer></script>
   <script src="/main.js" defer></script>
+  <script src="settings.js" defer></script>
   <script src="js/calculate-playtime.js"></script>
 </head>
 <body>
@@ -368,10 +351,31 @@
             </a>
           </li>
 
+          <li data-title="Awesome Tanks 2">
+            <a href="AwesomeTanks2.html">
+              <img src="AwesomeTanks2.png" alt="Awesome Tanks 2" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Awesome Tanks 2</span>
+            </a>
+          </li>
+
           <li data-title="Bloons TD 1">
             <a href="bloonstd.html">
               <img src="bloonstd.png" alt="Bloons TD 1" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>Bloons TD 1</span>
+            </a>
+          </li>
+
+          <li data-title="Bloons Tower Defense 3">
+            <a href="Bloons_Tower_Defense_3.html">
+              <img src="Bloons_Tower_Defense_3.png" alt="Bloons Tower Defense 3" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Bloons Tower Defense 3</span>
+            </a>
+          </li>
+
+          <li data-title="Bloons TD 4">
+            <a href="bloonstd4.html">
+              <img src="bloonstd4.png" alt="Bloons TD 4" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Bloons TD 4</span>
             </a>
           </li>
 
@@ -417,10 +421,24 @@
             </a>
           </li>
 
+          <li data-title="Five Nights at Freddy's">
+            <a href="FNAF.html">
+              <img src="FNAF.png" alt="Five Nights at Freddy's" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Five Nights at Freddy's</span>
+            </a>
+          </li>
+
           <li data-title="Learn to Fly 3">
             <a href="Learn-To-Fly-3.html">
               <img src="Learn-To-Fly-3.png" alt="Learn to Fly 3" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>Learn to Fly 3</span>
+            </a>
+          </li>
+
+          <li data-title="N v1.2">
+            <a href="Nv12.html">
+              <img src="Nv12.png" alt="N v1.2" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>N v1.2</span>
             </a>
           </li>
 
@@ -438,6 +456,13 @@
             </a>
           </li>
 
+          <li data-title="Retro Racing v0.8">
+            <a href="Retro-Racing-v0.8.html">
+              <img src="Retro-Racing-v0.8.png" alt="Retro Racing v0.8" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Retro Racing v0.8</span>
+            </a>
+          </li>
+
           <li data-title="Run 2">
             <a href="run2.html">
               <img src="run2.png" alt="Run 2" onerror="this.onerror=null; this.src='placeholdergame.png';">
@@ -449,6 +474,13 @@
             <a href="run3.html">
               <img src="run3.png" alt="Run 3" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>Run 3</span>
+            </a>
+          </li>
+
+          <li data-title="Super Mario 63">
+            <a href="498969_Super_Mario_63__2009_.html">
+              <img src="498969_Super_Mario_63__2009_.png" alt="Super Mario 63" onerror="this.onerror=null; this.src='placeholdergame.png';">
+              <span>Super Mario 63</span>
             </a>
           </li>
 
@@ -464,24 +496,6 @@
               <img src="worldshardestgame.png" alt="World's Hardest Game" onerror="this.onerror=null; this.src='placeholdergame.png';">
               <span>World's Hardest Game</span>
             </a>
-          </li>
-
-          <li data-title="YOMI Hustle Demo">
-            <a href="yomihustle.html">
-              <img src="yomi.png" alt="YOMI Hustle Demo" onerror="this.onerror=null; this.src='placeholdergame.png';">
-              <span>YOMI Hustle Demo</span>
-            </a>
-          </li>
-
-          <!-- Placeholder Slots for Upcoming Games (Completes 5th Row of 4) -->
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
-          </li>
-
-          <li class="placeholder-box">
-            <div class="placeholder-thumb">+</div>
-            <span>Coming Soon</span>
           </li>
 
         </ul>
