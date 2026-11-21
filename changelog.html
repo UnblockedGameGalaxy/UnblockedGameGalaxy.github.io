@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog - Unblocked Game Galaxy</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Explore Unblocked Game Galaxy! Play thousands of free unblocked games at school, work, or home. Discover Run 3, Bloons TD 1, Age of War, World's Hardest Game, and more.">
+  <meta property="og:title" content="Changelog - Unblocked Game Galaxy">
+  <meta property="og:description" content="Play the best free unblocked games online seamlessly.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="placeholdergame.png">
+  <meta name="theme-color" content="#7b2cbf">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="placeholdergame.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="placeholdergame.png">
+
+  <!-- Galaxy Fonts (Orbitron for headers, Exo 2 for body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Matching Galaxy Theme Variables, Layout Rails & Coming Soon Styles -->
+  <style>
+    :root {
+      --primary-color: #7b2cbf;
+      --primary-glow: #c77dff;
+      --secondary-color: #10002b;
+      --secondary-color-dark: #090018;
+      --font-galaxy: 'Orbitron', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--secondary-color-dark);
+      background-image: radial-gradient(circle at top center, #240046 0%, var(--secondary-color-dark) 75%);
+      color: #ffffff;
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    /* Navigation Bar (matches index.html & style.css) */
+    #navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      background: var(--secondary-color);
+      border-bottom: 2px solid var(--primary-color);
+      box-shadow: 0 4px 20px rgba(123, 44, 191, 0.35);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      font-family: var(--font-galaxy);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      text-decoration: none;
+      text-shadow: 0 0 12px rgba(199, 125, 255, 0.75);
+      transition: text-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    .brand-logo:hover {
+      color: var(--primary-glow);
+      text-shadow: 0 0 18px rgba(199, 125, 255, 0.95);
+    }
+
+    .nav-dropdown-container {
+      position: relative;
+    }
+
+    .nav-menu-btn {
+      background: var(--secondary-color-dark);
+      color: #ffffff;
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-family: var(--font-galaxy);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-menu-btn:hover {
+      background: var(--primary-color);
+      box-shadow: 0 0 14px rgba(199, 125, 255, 0.5);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      min-width: 170px;
+      background: var(--secondary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+      z-index: 150;
+    }
+
+    .nav-dropdown-menu.show,
+    .nav-dropdown-menu.open {
+      display: block;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: var(--font-galaxy);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(199, 125, 255, 0.15);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* Main Wrapper with Left & Right Ad Space (matches index.html) */
+    .home-layout-rails {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1500px;
+      width: 100%;
+      margin: 25px auto 45px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .ad-rail {
+      width: 160px;
+      min-height: 600px;
+      position: sticky;
+      top: 85px;
+      flex-shrink: 0;
+      background: rgba(16, 0, 43, 0.4);
+      border: 1px dashed rgba(199, 125, 255, 0.3);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: var(--font-galaxy);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1150px) {
+      .ad-rail {
+        display: none;
+      }
+    }
+
+    .home-main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .section-header {
+      font-family: var(--font-galaxy);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      padding-left: 12px;
+      border-left: 4px solid var(--primary-glow);
+      text-shadow: 0 0 10px rgba(199, 125, 255, 0.45);
+    }
+
+    /* Changelog Coming Soon Card */
+    .changelog-coming-soon-box {
+      background: var(--secondary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 70px 28px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(157, 78, 221, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .changelog-coming-soon-title {
+      margin: 0;
+      font-family: var(--font-galaxy);
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 18px rgba(199, 125, 255, 0.65);
+    }
+
+    .back-games-btn {
+      display: inline-block;
+      padding: 11px 22px;
+      background: var(--secondary-color-dark);
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: var(--font-galaxy);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-games-btn:hover {
+      background: var(--primary-color);
+      box-shadow: 0 0 15px rgba(199, 125, 255, 0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Accordion Footer (matches index.html) */
+    .galaxy-footer {
+      background: var(--secondary-color);
+      border-top: 2px solid var(--primary-color);
+      margin-top: auto;
+    }
+
+    .footer-accordion-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      color: var(--primary-glow);
+      font-family: var(--font-galaxy);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-accordion-btn:hover {
+      background: rgba(123, 44, 191, 0.18);
+      color: #ffffff;
+    }
+
+    .footer-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      background: var(--secondary-color-dark);
+    }
+
+    .footer-content.open,
+    .footer-content.active {
+      max-height: 600px;
+      border-top: 1px solid rgba(199, 125, 255, 0.2);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.65;
+    }
+
+    .footer-inner h3 {
+      font-family: var(--font-galaxy);
+      color: var(--primary-glow);
+      font-size: 1.05rem;
+      margin: 0 0 8px 0;
+    }
+
+    .footer-inner p {
+      margin: 0 0 18px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-dashboard-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .footer-link-btn {
+      padding: 9px 16px;
+      background: var(--secondary-color);
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: var(--font-galaxy);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .footer-link-btn:hover {
+      background: var(--primary-color);
+      box-shadow: 0 0 12px rgba(199, 125, 255, 0.45);
+    }
+
+    .footer-credits {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(199, 125, 255, 0.2);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    @media (max-width: 600px) {
+      #navbar-container {
+        padding: 14px 16px;
+      }
+      .brand-logo {
+        font-size: 1.05rem;
+      }
+      .changelog-coming-soon-box {
+        padding: 50px 20px;
+      }
+    }
+  </style>
+
+  <!-- Essential Site Scripts & Background Loader -->
+  <script src="/analytics.js" async></script>
+  <script src="/tracking.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="js/calculate-playtime.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div id="navbar-container">
+    <a href="index.html" class="brand-logo">UNBLOCKED GAME GALAXY</a>
+    
+    <!-- Title Selection Dropdown -->
+    <div class="nav-dropdown-container">
+      <button id="navMenuBtn" class="nav-menu-btn">
+        Menu <span class="arrow-icon">▼</span>
+      </button>
+      <div id="navDropdownMenu" class="nav-dropdown-menu">
+        <a href="/settings.html">Settings</a>
+        <a href="index.html#AllGamesDiv">Games</a>
+        <a href="changelog.html">Changelog</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout with Side Ad Space & Center Content -->
+  <div class="home-layout-rails">
+    
+    <!-- Left Ad Space -->
+    <aside class="ad-rail"></aside>
+
+    <!-- Center Changelog Section -->
+    <main class="home-main-content">
+      <div class="section-header">Changelog</div>
+      
+      <div class="changelog-coming-soon-box">
+        <h1 class="changelog-coming-soon-title">Changelog coming soon</h1>
+        <a href="index.html" class="back-games-btn">Back to Games</a>
+      </div>
+    </main>
+
+    <!-- Right Ad Space -->
+    <aside class="ad-rail"></aside>
+
+  </div>
+
+  <!-- Accordion Footer Container -->
+  <footer class="galaxy-footer">
+    <button id="footerAccordionBtn" class="footer-accordion-btn">
+      <span>ABOUT UNBLOCKED GAME GALAXY</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div id="footerContent" class="footer-content">
+      <div class="footer-inner">
+        <h3>Welcome to the Galaxy of Free Online Gaming</h3>
+        <p>
+          Unblocked Game Galaxy is your ultimate portal for playing free online web games anywhere—whether you are at school, work, or home. Our platform provides unrestricted access to hundreds of top-rated HTML5, WebGL, and retro arcade titles without requiring downloads, installs, or logins.
+        </p>
+        
+        <h3>Why Play on Unblocked Game Galaxy?</h3>
+        <p>
+          We curate a continuously updated collection of popular games across multiple genres including high-speed driving simulators, multiplayer arenas, tricky puzzle games, action platformers, and endless runners. All games are optimized for smooth execution on modern browsers and Chromebooks.
+        </p>
+
+        <!-- Quick Links & Dashboard Links -->
+        <div class="footer-dashboard-links">
+          <a class="footer-link-btn" href="https://github.com/UnblockedGameGalaxy">GitHub</a>
+          <a class="footer-link-btn" href="https://forms.gle/">Suggest a Game!</a>
+        </div>
+
+        <div class="footer-credits">
+          &copy; 2026 Unblocked Game Galaxy. All rights reserved. Designed for unrestricted browser gaming.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Files -->
+  <script src="script.js"></script>
+
+  <!-- Fallback Dropdown & Accordion Handler (if script.js isn't loaded) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navBtn = document.getElementById("navMenuBtn");
+      const navMenu = document.getElementById("navDropdownMenu");
+      const footerBtn = document.getElementById("footerAccordionBtn");
+      const footerContent = document.getElementById("footerContent");
+
+      // Only bind fallback listeners if script.js didn't already attach handlers
+      setTimeout(() => {
+        if (navBtn && navMenu && !navBtn.dataset.bound) {
+          navBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle("show");
+          });
+          document.addEventListener("click", () => {
+            navMenu.classList.remove("show");
+          });
+        }
+
+        if (footerBtn && footerContent && !footerBtn.dataset.bound) {
+          footerBtn.addEventListener("click", () => {
+            footerContent.classList.toggle("open");
+          });
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>
