@@ -27,12 +27,75 @@
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Contact Page Specific Styles -->
+  <!-- Contact Page, Sticky Bottom Footer & Top Nav Specific Styles -->
   <style>
+    /* Full-height flex layout to keep About footer at the bottom of the viewport */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Custom Background Support */
+    body.custom-bg-active {
+      background-size: cover !important;
+      background-position: center !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+    }
+
+    /* Top Bar Direct Navigation Links */
+    .top-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .top-nav-link {
+      background: var(--secondary-color-dark);
+      color: #fff;
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-family: var(--font-galaxy);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .top-nav-link:hover,
+    .top-nav-link.active {
+      background: var(--primary-glow);
+      color: var(--secondary-color-dark);
+      box-shadow: 0 0 12px rgba(199, 125, 255, 0.6);
+    }
+
+    @media (max-width: 650px) {
+      #navbar-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 16px;
+      }
+      .top-nav-links {
+        justify-content: center;
+      }
+    }
+
+    /* Expands main area to push footer to the bottom */
     .contact-container {
+      flex: 1;
+      width: 100%;
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
+      box-sizing: border-box;
     }
 
     .contact-card {
@@ -117,12 +180,19 @@
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
     }
+
+    /* Footer pinned at bottom */
+    .galaxy-footer {
+      margin-top: auto;
+      width: 100%;
+    }
   </style>
 
   <!-- Essential Site Scripts -->
   <script src="/analytics.js" async></script>
   <script src="/tracking.js" defer></script>
   <script src="/main.js" defer></script>
+  <script src="settings.js" defer></script>
 </head>
 <body>
 
@@ -130,35 +200,32 @@
   <div id="navbar-container">
     <div class="brand-logo">UNBLOCKED GAME GALAXY</div>
     
-    <!-- Title Selection Dropdown -->
-    <div class="nav-dropdown-container">
-      <button id="navMenuBtn" class="nav-menu-btn">
-        Menu <span class="arrow-icon">▼</span>
-      </button>
-      <div id="navDropdownMenu" class="nav-dropdown-menu">
-        <a href="/settings.html">Settings</a>
-        <a href="/index.html#AllGamesDiv">Games</a>
-      </div>
-    </div>
+    <!-- Top Bar Navigation Links -->
+    <nav class="top-nav-links" aria-label="Main Navigation">
+      <a href="index.html#AllGamesDiv" class="top-nav-link">Games</a>
+      <a href="contact.html" class="top-nav-link active">Contact</a>
+      <a href="settings.html" class="top-nav-link">Settings</a>
+      <a href="changelog.html" class="top-nav-link">Changelog</a>
+    </nav>
   </div>
 
   <!-- Main Contact Section -->
-  <div class="contact-container">
+  <main class="contact-container">
     <div class="contact-card">
       <div class="direct-email-box">
-        Reach out directly at: <a href="mailto:example@gmail.com">example@gmail.com</a>
+        Reach out directly at: <a href="mailto:UnblockedGameGalaxy@proton.me">UnblockedGameGalaxy@proton.me</a>
       </div>
 
       <!-- Looking For Something Else Section -->
       <div class="alt-actions-section">
         <div class="alt-actions-title">Looking for something else?</div>
         <div class="alt-actions-grid">
-          <a href="https://forms.gle/" target="_blank" rel="noopener" class="alt-action-card">
+          <a href="https://www.cognitoforms.com/UnblockedGameGalaxy/SuggestGame" target="_blank" rel="noopener" class="alt-action-card">
             <span class="alt-action-icon">🎮</span>
             <span class="alt-action-name">Suggest Game</span>
             <span class="alt-action-desc">Request a new game to be added</span>
           </a>
-          <a href="https://forms.gle/" target="_blank" rel="noopener" class="alt-action-card">
+          <a href="https://www.cognitoforms.com/unblockedgamegalaxy/BugFix" target="_blank" rel="noopener" class="alt-action-card">
             <span class="alt-action-icon">🐛</span>
             <span class="alt-action-name">Report Bug</span>
             <span class="alt-action-desc">Let us know if a game isn't working</span>
@@ -166,7 +233,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Accordion Footer Container -->
   <footer class="galaxy-footer">
@@ -183,10 +250,10 @@
 
         <!-- Quick Links & Dashboard Links -->
         <div class="footer-dashboard-links">
-          <a class="footer-link-btn" href="https://github.com/">GitHub</a>
-          <a class="footer-link-btn" href="/changelog.html">Changelog</a>
-          <a class="footer-link-btn" href="/wrapped.html">View Playtime Stats</a>
-          <a class="footer-link-btn" href="/contact.html">Contact Us</a>
+          <a class="footer-link-btn" href="https://github.com/UnblockedGameGalaxy">GitHub</a>
+          <a class="footer-link-btn" href="changelog.html">Changelog</a>
+          <a class="footer-link-btn" href="wrapped.html">View Playtime Stats</a>
+          <a class="footer-link-btn" href="contact.html">Contact Us</a>
         </div>
 
         <div class="footer-credits">
@@ -198,5 +265,24 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script>
+    function applySavedBackground() {
+      const savedBg = localStorage.getItem("galaxy_custom_bg");
+      if (savedBg) {
+        document.body.classList.add("custom-bg-active");
+        document.body.style.setProperty("background-image", `url("${savedBg}")`, "important");
+      } else {
+        document.body.classList.remove("custom-bg-active");
+        document.body.style.removeProperty("background-image");
+      }
+    }
+
+    applySavedBackground();
+    window.addEventListener("storage", (e) => {
+      if (e.key === "galaxy_custom_bg") {
+        applySavedBackground();
+      }
+    });
+  </script>
 </body>
 </html>
