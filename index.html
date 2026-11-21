@@ -25,8 +25,54 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Home Page 4-Column Grid, Top Search/Sort Bar & Side Ad Rails Styles -->
+  <!-- Home Page 4-Column Grid, Top Nav Links, Search/Sort Bar & Side Ad Rails Styles -->
   <style>
+    /* Custom Background Support */
+    body.custom-bg-active {
+      background-size: cover !important;
+      background-position: center !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+    }
+
+    /* Top Bar Direct Navigation Links */
+    .top-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .top-nav-link {
+      background: var(--secondary-color-dark);
+      color: #fff;
+      border: 1px solid var(--primary-glow);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-family: var(--font-galaxy);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .top-nav-link:hover {
+      background: var(--primary-glow);
+      color: var(--secondary-color-dark);
+      box-shadow: 0 0 12px rgba(199, 125, 255, 0.6);
+    }
+
+    @media (max-width: 650px) {
+      #navbar-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 16px;
+      }
+      .top-nav-links {
+        justify-content: center;
+      }
+    }
+
     /* Top Search & Sort Control Bar */
     .top-controls-bar {
       display: flex;
@@ -274,16 +320,13 @@
   <div id="navbar-container">
     <div class="brand-logo">UNBLOCKED GAME GALAXY</div>
     
-    <!-- Title Selection Dropdown -->
-    <div class="nav-dropdown-container">
-      <button id="navMenuBtn" class="nav-menu-btn">
-        Menu <span class="arrow-icon">▼</span>
-      </button>
-      <div id="navDropdownMenu" class="nav-dropdown-menu">
-        <a href="/settings.html">Settings</a>
-        <a href="#AllGamesDiv">Games</a>
-      </div>
-    </div>
+    <!-- Top Bar Navigation Links -->
+    <nav class="top-nav-links" aria-label="Main Navigation">
+      <a href="#AllGamesDiv" class="top-nav-link">Games</a>
+      <a href="contact.html" class="top-nav-link">Contact</a>
+      <a href="settings.html" class="top-nav-link">Settings</a>
+      <a href="changelog.html" class="top-nav-link">Changelog</a>
+    </nav>
   </div>
 
   <!-- Home Page Layout with Side Ad Space & 4-Column Game Grid -->
@@ -413,7 +456,6 @@
               <span>YOMI Hustle</span>
             </a>
           </li>
-
 
           <li data-title="Duck Life 4">
             <a href="duck-life-4_20210406.html">
@@ -550,9 +592,30 @@
   <!-- External JavaScript Files -->
   <script src="script.js"></script>
 
-  <!-- Live Search & A-Z / Z-A Sort Script -->
+  <!-- Custom Background Applier + Live Search & A-Z / Z-A Sort Script -->
   <script>
+    function applySavedBackground() {
+      const savedBg = localStorage.getItem("galaxy_custom_bg");
+      if (savedBg) {
+        document.body.classList.add("custom-bg-active");
+        document.body.style.setProperty("background-image", `url("${savedBg}")`, "important");
+      } else {
+        document.body.classList.remove("custom-bg-active");
+        document.body.style.removeProperty("background-image");
+      }
+    }
+
+    // Apply immediately and on storage changes across tabs
+    applySavedBackground();
+    window.addEventListener("storage", (e) => {
+      if (e.key === "galaxy_custom_bg") {
+        applySavedBackground();
+      }
+    });
+
     document.addEventListener("DOMContentLoaded", () => {
+      applySavedBackground();
+
       const searchInput = document.getElementById("gameSearchInput");
       const clearBtn = document.getElementById("searchClearBtn");
       const noResultsMsg = document.getElementById("noResultsMessage");
