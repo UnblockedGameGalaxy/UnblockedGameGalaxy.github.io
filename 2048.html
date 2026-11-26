@@ -87,7 +87,7 @@
 
     .ply-stage {
       flex: 1;
-      max-width: 960px;
+      max-width: 800px;
       background: var(--secondary-color);
       border: 2px solid var(--primary-color);
       border-radius: 12px;
@@ -95,17 +95,18 @@
       box-shadow: 0 0 25px rgba(157, 78, 221, 0.3);
     }
 
-    /* Centered Ruffle Player Container */
+    /* Centered Square Ruffle Player Container */
     .ply-frame-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3;
-      max-height: 640px;
+      aspect-ratio: 1 / 1;
+      max-height: 700px;
       background-color: #000;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      margin: 0 auto;
     }
 
     #ruffle-container {
@@ -527,8 +528,7 @@
       unmuteOverlay: "hidden",
       backgroundColor: "#000000",
       letterbox: "on",
-      scale: "showAll",
-      forceScale: true,
+      scale: "exactFit",
       quality: "high"
     };
 
