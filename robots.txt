@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unblockedgamegalaxy.github.io/sitemap.xml
